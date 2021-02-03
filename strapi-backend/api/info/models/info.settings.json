@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "infos",
+  "info": {
+    "name": "info",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Desc": {
+      "type": "text",
+      "required": true
+    },
+    "Age": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
