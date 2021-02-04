@@ -1,6 +1,8 @@
 // fonts
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
 @import "./colors";
+@import "./layout";
+@import "./header";
 
 *,
 *::before,
@@ -12,5 +14,25 @@
 
 body {
   font-family: "Raleway", sans-serif;
-  background: #000;
+  background: $b;
+}
+a {
+  text-decoration: none;
+  color: $w;
+}
+button {
+  outline: none;
+}
+.share {
+  grid-column: 6/7;
+  position: absolute;
+  z-index: 20;
+  bottom: 8vh;
+  font-size: 18px;
+  color: $b;
+}
+@media only screen and (max-width: 784px) {
+  .share {
+    display: none;
+  }
 }

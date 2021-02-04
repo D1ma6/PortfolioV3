@@ -1,37 +1,53 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
-import { Icon, InlineIcon } from "@iconify/react"
-import behanceSquare from "@iconify/icons-jam/behance-square"
-import instagram from "@iconify/icons-jam/instagram"
-import facebook from "@iconify/icons-jam/facebook"
+import Social from "../constants/social"
+import "../styles/main.scss"
+import { useLocation } from "@reach/router"
+import { motion, AnimatePresence } from "framer-motion"
 
-const Navbar = () => {
+const Navbar = ({ toggleMenu, setIsOpen, isOpen }) => {
+  const location = useLocation()
+  useEffect(() => {
+    setIsOpen(false)
+  }, [location])
+
   return (
-    <header className="header">
-      <div className="header__logo">
-        <Link className="header__icon" to="/">
-          <span>Dmytro.</span>
-          <span>dev</span>
-        </Link>
-      </div>
-      <button className="header__btn">menu.</button>
-      <div className="header__social">
-        <Link to="/" className="header__social__icons">
-          <Icon
-            icon={facebook}
-            style={{ color: "#ffffff", fontSize: "24px" }}
-          />
-          <Icon
-            icon={instagram}
-            style={{ color: "#ffffff", fontSize: "24px" }}
-          />
-          <Icon
-            icon={behanceSquare}
-            style={{ color: "#ffffff", fontSize: "24px" }}
-          />
-        </Link>
-      </div>
-    </header>
+    <AnimatePresence>
+      <header className="header">
+        <div className="header__logo">
+          <Link className="header__logo__icon" to="/">
+            <motion.span
+              initial={isOpen ? { color: "#fff" } : {}}
+              animate={isOpen ? { color: "#040404" } : {}}
+              exit={isOpen ? { color: "#fff" } : {}}
+            >
+              Dmytro.
+            </motion.span>
+            <span>dev</span>
+          </Link>
+        </div>
+        <div className="header__btn">
+          <motion.button
+            onClick={() => {
+              setIsOpen(!isOpen)
+            }}
+            initial={isOpen ? { color: "#fff" } : {}}
+            animate={isOpen ? { color: "#040404" } : {}}
+            exit={isOpen ? { color: "#fff" } : {}}
+          >
+            menu.
+          </motion.button>
+        </div>
+        <Social
+          classStyle="header__social"
+          display="flex"
+          flex="column"
+          align="center"
+          size="18"
+          color={isOpen ? "#040404" : "#fff"}
+        />
+      </header>
+    </AnimatePresence>
   )
 }
 

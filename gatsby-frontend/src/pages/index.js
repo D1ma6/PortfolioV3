@@ -3,9 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import "../styles/main.scss"
 
-const ComponentName = ({ data }) => (
-  <Layout>{JSON.stringify(data, null, 4)}</Layout>
-)
+const ComponentName = ({ data }) => <Layout></Layout>
 
 export const query = graphql`
   {
