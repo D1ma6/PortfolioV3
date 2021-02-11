@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 
 module.exports = {
   siteMetadata: {
@@ -40,10 +40,10 @@ module.exports = {
         fonts: [
           {
             family: `Raleway`,
-            variant: ["400", "500", , "600", "700"],
+            variant: ["400", "500", "600", "700"],
           },
         ],
       },
     },
   ],
-}
+};
