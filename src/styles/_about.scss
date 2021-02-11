@@ -1,0 +1,246 @@
+// about me
+.about {
+  grid-column: 2/6;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow-y: scroll;
+  height: 100vh;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__container {
+    width: 100%;
+    grid-column: 1/4;
+    margin: 120px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  position: relative;
+  &__hello,
+  &__year {
+    font-size: 14px;
+    color: $w;
+    margin: 0 0 0 1px;
+  }
+  &__hello {
+    grid-column: 1/2;
+  }
+  &__year {
+    grid-column: 2/3;
+  }
+
+  &__description {
+    grid-column: 1/4;
+    color: $w;
+    margin: 30px 0 0 1px;
+
+    &__title {
+      font-size: 48px;
+      font-weight: 700;
+    }
+    &__p {
+      font-size: 18px;
+      line-height: 28px;
+      margin: 30px 0 0 1px;
+    }
+  }
+  &__resume,
+  &__contact {
+    margin: 60px 0 0 1px;
+    font-size: 18px;
+  }
+  &__resume {
+    background: rgba($color: $w, $alpha: 1);
+    color: $b;
+    border: 1px solid $w;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
+      border 0.3s ease-in-out;
+
+    &:hover {
+      background: rgba($color: $w, $alpha: 0);
+      color: $red;
+      border: 1px solid $red;
+    }
+  }
+  &__contact {
+    border: 1px solid $w;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+
+    & span {
+      position: absolute;
+      width: 30%;
+      z-index: -1;
+      height: 100%;
+      background: $w;
+
+      transition: transform 0.4s ease-in-out, background 0.3s ease-in-out;
+      transform: translateX(-200%);
+      clip-path: polygon(33% 0, 100% 0, 66% 100%, 0% 100%);
+    }
+
+    &:hover {
+      color: $red;
+      border: 1px solid $red;
+      & span {
+        transform: translateX(200%);
+        background: $red;
+      }
+    }
+  }
+
+  &__skills {
+    display: flex;
+    flex-direction: column;
+
+    color: $w;
+    width: 100%;
+
+    &__first {
+      grid-column: 1/2;
+    }
+    &__second {
+      grid-column: 2/3;
+    }
+
+    &__container {
+      grid-column: 1/6;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 80px 0 0 0;
+      width: 100%;
+      align-items: center;
+      padding: 0 0 9vh 0;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      margin: 60px 0 0 0;
+      justify-self: center;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        & > .about__skills__item__title {
+          color: $red !important;
+        }
+        & > .about__skills__item__title > svg {
+          color: $red !important;
+        }
+        & > .about__skills__item__bar {
+          background: $red !important;
+        }
+      }
+
+      &__first {
+        margin: 0;
+      }
+
+      &__title {
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        & svg {
+          transition: all 0.3s ease-in-out;
+        }
+        & span {
+          font-size: 24px;
+          margin: 0 0 0 20px;
+          font-weight: 600;
+        }
+      }
+      &__bar {
+        transition: all 0.3s ease-in-out;
+        margin: 20px 0 0 0;
+        height: 1px;
+        background: $w;
+      }
+    }
+  }
+  &__image {
+    grid-column: 3/5;
+
+    width: 100%;
+
+    padding: 0 1px;
+    & img {
+      mix-blend-mode: luminosity;
+    }
+  }
+}
+@media only screen and (max-width: 1380px) {
+  .about {
+    &__container {
+      grid-column: 1/5;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    &__description {
+      grid-column: 1/5;
+    }
+    &__resume {
+      grid-column: 1/2;
+    }
+    &__contact {
+      grid-column: 2/3;
+    }
+    &__skills {
+      &__first {
+        grid-column: 1/3;
+      }
+      &__second {
+        grid-column: 3/5;
+      }
+    }
+    &__image {
+      grid-column: 1/5;
+      margin: 60px 0 0 0;
+    }
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .about {
+    &__resume {
+      grid-column: 1/3;
+    }
+    &__contact {
+      grid-column: 3/5;
+    }
+  }
+}
+@media only screen and (max-width: 680px) {
+  .about {
+    &__skills {
+      &__item {
+        &__title {
+          & > span {
+            font-size: 18px;
+          }
+          & > svg {
+            font-size: 36px !important;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .about {
+    grid-column: 2/7;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0 20px 0 0;
+
+    &__description {
+      &__p {
+        font-size: 16px;
+      }
+    }
+
+    &__container {
+      grid-column: 1/6;
+    }
+  }
+}

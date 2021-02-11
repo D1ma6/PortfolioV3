@@ -1,0 +1,162 @@
+// project
+.project {
+  & * {
+    color: $w;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  position: absolute;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column: 2/6;
+
+  &__left {
+    display: grid;
+    grid-column: 1/3;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+    overflow-y: scroll;
+    padding: 120px 0 0 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__date,
+    &__year {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0 0 0 1px;
+      height: fit-content;
+    }
+    &__date {
+      grid-column: 1/2;
+    }
+    &__year {
+      grid-column: 2/3;
+    }
+    &__title {
+      font-size: 36px;
+      font-weight: 700;
+      grid-column: 1/3;
+      margin: 20px 0 0 0;
+    }
+    &__images {
+      grid-column: 1/3;
+      display: flex;
+      flex-direction: column;
+      padding: 0 0 8vh 0;
+
+      &__photo {
+        margin: 20px 1px 0 1px;
+      }
+    }
+  }
+
+  &__right {
+    grid-column: 3/5;
+    display: flex;
+    flex-direction: column;
+    padding: 120px 40px 0 20px;
+    position: relative;
+
+    &__title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    &__description {
+      font-size: 18px;
+      font-weight: 400;
+      margin: 20px 0 0 0;
+      line-height: 28px;
+    }
+    &__tools {
+      display: flex;
+      margin: 60px 0 0 0;
+      align-items: center;
+      & span {
+        font-size: 18px;
+        margin: 0 10px 0 0;
+      }
+      & svg {
+        margin: 0 15px 0 0;
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+    &__hashtags {
+      font-size: 14px;
+      font-weight: 400;
+      max-width: 400px;
+      margin: 20px 0 0 0;
+    }
+    &__social {
+      display: flex;
+      position: absolute;
+      bottom: 8vh;
+      transition: all 0.3s ease-in-out;
+      &__link {
+        margin: 0 20px 0 0;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-height: 745px) {
+  .project {
+    &__right {
+      height: 100vh;
+      overflow-y: scroll;
+
+      &__social {
+        position: static;
+        margin: 60px 0 8vh 0;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1180px) {
+  .project {
+    &__right {
+      &__description {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 960px) {
+  .project {
+    &__left {
+      &__title {
+        font-size: 28px;
+      }
+    }
+    &__right {
+      padding: 120px 20px 0 20px;
+    }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .project {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: scroll;
+
+    &__left,
+    &__right {
+      overflow: visible;
+      height: auto;
+    }
+    &__right {
+      padding-top: 0;
+    }
+  }
+}
