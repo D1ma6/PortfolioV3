@@ -34,15 +34,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
+
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Raleway`,
-            variant: ["400", "500", "600", "700"],
-          },
-        ],
+        fonts: [`Raleway\:400,500,600,700`],
+        display: "swap",
       },
     },
   ],

@@ -2,8 +2,8 @@ var plugins = [{
       plugin: require('/Users/d1ma6/Desktop/PortfolioV3/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('/Users/d1ma6/Desktop/PortfolioV3/node_modules/gatsby-plugin-prefetch-google-fonts/gatsby-ssr'),
-      options: {"plugins":[],"fonts":[{"family":"Raleway","variant":["400","500",null,"600","700"]}]},
+      plugin: require('/Users/d1ma6/Desktop/PortfolioV3/node_modules/gatsby-plugin-google-fonts/gatsby-ssr'),
+      options: {"plugins":[],"fonts":["Raleway:400,500,600,700"],"display":"swap"},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [

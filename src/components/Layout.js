@@ -1,16 +1,16 @@
-import React, { useState } from "react"
-import Navbar from "./Navbar"
-import NavbarExpand from "./NavbarExpand"
-import Share from "../constants/share"
-import AnimatedCursor from "react-animated-cursor"
-import { motion, AnimatePresence } from "framer-motion"
+import React, { useState } from "react";
+import Navbar from "./Navbar";
+import NavbarExpand from "./NavbarExpand";
+import Share from "../constants/share";
 
-import Lines from "../constants/lines"
+import { motion, AnimatePresence } from "framer-motion";
 
-const transition = { ease: "easeInOut", duration: 0.8 }
+import Lines from "../constants/lines";
+
+const transition = { ease: "easeInOut", duration: 0.8 };
 
 const Layout = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -59,18 +59,10 @@ const Layout = ({ children }) => {
             className="layout__lines"
           ></motion.span>
           <Share isOpen={isOpen} />
-          <AnimatedCursor
-            innerSize={10}
-            outerSize={20}
-            color="236, 28, 36"
-            outerAlpha={0.3}
-            innerScale={1}
-            outerScale={5}
-          />
         </motion.div>
       </AnimatePresence>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

@@ -1,7 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
-import { Icon, InlineIcon } from "@iconify/react"
-import robotFace from "@iconify/icons-emojione-monotone/robot-face"
+import React from "react";
+import { Link } from "gatsby";
+import { Icon } from "@iconify/react";
+import robotFace from "@iconify/icons-emojione-monotone/robot-face";
 
 const Error = () => {
   return (
@@ -13,6 +13,6 @@ const Error = () => {
         Go back
       </Link>
     </div>
-  )
-}
-export default Error
+  );
+};
+export default Error;
