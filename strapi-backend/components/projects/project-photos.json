@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_projects_project_photos",
+  "info": {
+    "name": "project_photos",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "Photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

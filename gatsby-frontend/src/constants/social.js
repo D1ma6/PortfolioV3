@@ -15,7 +15,10 @@ const social = ({ display, size, flex, align, color, classStyle }) => {
         alignSelf: `${align}`,
       }}
     >
-      <Link to="/" className="header__social__icons">
+      <Link
+        to="https://www.facebook.com/d1ma6/"
+        className="header__social__icons"
+      >
         <Icon
           icon={facebook}
           style={{
@@ -25,7 +28,10 @@ const social = ({ display, size, flex, align, color, classStyle }) => {
           }}
         />
       </Link>
-      <Link to="/" className="header__social__icons">
+      <Link
+        to="https://www.instagram.com/d1ma6/"
+        className="header__social__icons"
+      >
         <Icon
           icon={instagram}
           style={{
@@ -35,7 +41,10 @@ const social = ({ display, size, flex, align, color, classStyle }) => {
           }}
         />
       </Link>
-      <Link to="/" className="header__social__icons">
+      <Link
+        to="https://www.behance.net/dmytrobula"
+        className="header__social__icons"
+      >
         <Icon
           icon={behanceSquare}
           style={{

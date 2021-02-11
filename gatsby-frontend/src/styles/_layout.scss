@@ -4,6 +4,8 @@
   grid-template-columns: 140px repeat(5, 1fr);
   position: relative;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 
   div.layout__lines {
     grid-column: 1 / 2;
@@ -19,6 +21,7 @@
     position: absolute;
     width: 1px;
     height: 100%;
+    z-index: -1;
     background: $dark;
 
     &:nth-of-type(1) {

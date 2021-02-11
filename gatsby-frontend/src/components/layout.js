@@ -1,18 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Navbar from "./Navbar"
 import NavbarExpand from "./NavbarExpand"
 import Share from "../constants/share"
+import AnimatedCursor from "react-animated-cursor"
 import { motion, AnimatePresence } from "framer-motion"
+
 import Lines from "../constants/lines"
 
 const transition = { ease: "easeInOut", duration: 0.8 }
-const parent = {
-  animate: {
-    transition: {
-      delay: 1,
-    },
-  },
-}
 
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,38 +16,57 @@ const Layout = ({ children }) => {
     <>
       <AnimatePresence>
         <motion.div
-          className="layout"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          variants={parent}
-          transition={transition}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
+          className="layout"
         >
-          <Navbar expand="navbarExpand" isOpen={isOpen} setIsOpen={setIsOpen} />
+          <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
           <NavbarExpand isOpen={isOpen} setIsOpen={setIsOpen} />
           {children}
 
           <Lines isOpen={isOpen} />
 
-          <span
+          <motion.span
+            initial={false}
+            exit={{ width: "100%" }}
+            transition={transition}
             className="layout__lines"
-            style={isOpen ? { background: "#e4e4e4" } : {}}
-          ></span>
-          <span
+          ></motion.span>
+          <motion.span
+            initial={false}
+            exit={{ width: "100%" }}
+            transition={transition}
             className="layout__lines"
-            style={isOpen ? { background: "#e4e4e4" } : {}}
-          ></span>
-          <span
+          ></motion.span>
+          <motion.span
+            initial={false}
+            exit={{ width: "100%" }}
+            transition={transition}
             className="layout__lines"
-            style={isOpen ? { background: "#e4e4e4" } : {}}
-          ></span>
-          <span
+          ></motion.span>
+          <motion.span
+            initial={false}
+            exit={{ width: "100%" }}
+            transition={transition}
             className="layout__lines"
-            style={isOpen ? { background: "#e4e4e4" } : {}}
-          ></span>
-          <span
+          ></motion.span>
+          <motion.span
+            initial={false}
+            exit={{ width: "100%" }}
+            transition={transition}
             className="layout__lines"
-            style={isOpen ? { background: "#e4e4e4" } : {}}
-          ></span>
-          <Share />
+          ></motion.span>
+          <Share isOpen={isOpen} />
+          <AnimatedCursor
+            innerSize={10}
+            outerSize={20}
+            color="236, 28, 36"
+            outerAlpha={0.3}
+            innerScale={1}
+            outerScale={5}
+          />
         </motion.div>
       </AnimatePresence>
     </>

@@ -5,7 +5,7 @@ import "../styles/main.scss"
 import { useLocation } from "@reach/router"
 import { motion, AnimatePresence } from "framer-motion"
 
-const Navbar = ({ toggleMenu, setIsOpen, isOpen }) => {
+const Navbar = ({ setIsOpen, isOpen }) => {
   const location = useLocation()
   useEffect(() => {
     setIsOpen(false)
@@ -18,8 +18,7 @@ const Navbar = ({ toggleMenu, setIsOpen, isOpen }) => {
           <Link className="header__logo__icon" to="/">
             <motion.span
               initial={isOpen ? { color: "#fff" } : {}}
-              animate={isOpen ? { color: "#040404" } : {}}
-              exit={isOpen ? { color: "#fff" } : {}}
+              animate={isOpen ? { color: "#040404" } : { color: "#fff" }}
             >
               Dmytro.
             </motion.span>

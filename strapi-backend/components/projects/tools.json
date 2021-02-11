@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_projects_tools",
+  "info": {
+    "name": "tools",
+    "icon": "angry",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Tool": {
+      "type": "enumeration",
+      "enum": [
+        "adobePhotoshop",
+        "adobeXd",
+        "figmaIcon",
+        "html5Outline",
+        "css3Outline",
+        "javascriptOutline",
+        "bxlReact",
+        "nodeIcon",
+        "strapiIcon",
+        "gatsbyjsOutline",
+        "contentfulIcon"
+      ]
+    }
+  }
+}

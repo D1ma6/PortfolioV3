@@ -1,31 +1,86 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
-import NavLinks from "../constants/navLinks"
 import Social from "../constants/social"
 import { motion, AnimatePresence } from "framer-motion"
 
 // variants && transitions
 const transition = { ease: "easeInOut", duration: 0.8 }
-const parent = {
+const linkVariant = {
+  initial: {
+    clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)",
+    transition: { ease: "easeInOut", duration: 1.2, delay: 0.2 },
+  },
   animate: {
-    transition: {
-      delay: 1,
-    },
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+    transition: { ease: "easeInOut", duration: 1.2, delay: 0.2 },
+  },
+  exit: {
+    clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
+    transition: { ease: "easeInOut", duration: 0.8 },
   },
 }
 
 const NavbarExpand = ({ isOpen, setIsOpen }) => {
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
-            exit={{ opacity: 0 }}
-            variants={parent}
-            transition={transition}
-            className="header__menu"
-          >
-            <NavLinks />
+          <motion.div className="header__menu">
+            <motion.ul className="header__menu__nav">
+              <motion.li
+                key="link1"
+                whileHover={{ x: 10 }}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={linkVariant}
+                className="header__menu__nav__li"
+              >
+                <Link key={"home"} to="/">
+                  Home
+                </Link>
+              </motion.li>
+              <motion.li
+                key="link2"
+                whileHover={{ x: 10 }}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={linkVariant}
+                className="header__menu__nav__li"
+              >
+                <Link key={"about"} to="/about/">
+                  About me
+                </Link>
+              </motion.li>
+              <motion.li
+                key="link3"
+                whileHover={{ x: 10 }}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={linkVariant}
+                className="header__menu__nav__li"
+              >
+                <Link key={"work"} to="/work/">
+                  My work
+                </Link>
+              </motion.li>
+              <motion.li
+                key="link4"
+                whileHover={{ x: 10 }}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={linkVariant}
+                className="header__menu__nav__li"
+              >
+                <Link key={"home"} to="/contact/">
+                  Contact me
+                </Link>
+              </motion.li>
+            </motion.ul>
+
             <Social
               classStyle="header__social__expanded"
               display="flex"
@@ -34,11 +89,33 @@ const NavbarExpand = ({ isOpen, setIsOpen }) => {
               size="32"
               color="#040404"
             />
-            <div className="header__email">
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={linkVariant}
+              className="header__email"
+            >
               <Link to="/">dmytro.bula21@gmail.com</Link>
-            </div>
-            <div className="header__name">dmytro bula</div>
-            <div className="header__year">{new Date().getFullYear()}</div>
+            </motion.div>
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={linkVariant}
+              className="header__name"
+            >
+              dmytro bula
+            </motion.div>
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={linkVariant}
+              className="header__year"
+            >
+              {new Date().getFullYear()}
+            </motion.div>
             <motion.span
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
